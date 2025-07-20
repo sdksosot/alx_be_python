@@ -1,6 +1,8 @@
-user = int(input(" Enter the size of the pattern: "))
+size = int(input("Enter the size of the square: "))
 
-while True:
-    for i in range(user):
-        print(f'*' * user)
-    break
+row = 0
+while row < size:
+    for col in range(size):
+        print("*", end="")
+    print()  # Move to the next line after each row
+    row += 1
