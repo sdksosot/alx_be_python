@@ -1,14 +1,19 @@
-num1 = int(input("Enter the first number: "))
-num2 = int(input('Enter the second number: '))
-type = input( 'Choose the operation (+, -, *, /): ')
-match type:
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+operation = input("Choose the operation (+, -, *, /): ")
+
+# Perform calculation using match case
+match operation:
     case '+':
-        print(f'The result is [{num1 + num2}]' )
-    case _ if num2 == 0 and type == '/':
-        print('Cannot divide by zero.')
-    case _ if num2 != 0 and type == '/':
-        print(f'The result is [{num1 / num2}]')
-    case "-":
-        print(f'The result is [{num1 - num2}]' )
-    case "*":
-        print(f'The result is [{num1 * num2}]' )
+        print(f"The result is {num1 + num2}")
+    case '-':
+        print(f"The result is {num1 - num2}")
+    case '*':
+        print(f"The result is {num1 * num2}")
+    case '/':
+        if num2 == 0:
+            print("Cannot divide by zero.")
+        else:
+            print(f"The result is {num1 / num2}")
+    case _:
+        print("Invalid operation. Please choose from +, -, *, /")
