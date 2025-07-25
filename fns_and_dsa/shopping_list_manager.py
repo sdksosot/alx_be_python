@@ -6,8 +6,9 @@ def display_menu():
     print("3. View List")
     print("4. Exit")
 def adding (shopping_list):
-    user = input ("Enter the item to add: ")
-    shopping_list.append(user)
+    item = input("Enter the item to add: ")
+
+    shopping_list.append(item)
     print('user added succsefully!')
 
 
