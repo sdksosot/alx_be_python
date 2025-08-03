@@ -8,4 +8,5 @@ def safe_divide(numerator:float, denominator:float):
        resulte =  num / dem  
     except ZeroDivisionError:
        return "Error: Cannot divide by zero."
-    return  f"The result of the division is {result}"
+    return f"The result of the division is {result}"
+
