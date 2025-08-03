@@ -1,9 +1,27 @@
-def safe_divide(numerator:float, denominator:float):
+def safe_divide(numerator, denominator):
+    """
+    Safely divides two numbers with comprehensive error handling
+    
+    Args:
+        numerator: Number to be divided
+        denominator: Number to divide by
+        
+    Returns:
+        float: Result of division if successful
+        str: Error message if division fails
+    """
     try:
-        return float(numerator) /float(denominator) 
-    except ZeroDivisionError:
-       return "Error: Cannot divide by zero."
+        num = float(numerator)
+        den = float(denominator)
     except ValueError:
-        return '"Error: Please enter numeric values only."'
+        return "Error: Both arguments must be numeric values"
+    
+    try:
+        result = num / den
+    except ZeroDivisionError:
+        return "Error: Cannot divide by zero"
+    
+    return f"The result of the division is {result}"
+
 
 
