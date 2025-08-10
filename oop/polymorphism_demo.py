@@ -1,3 +1,4 @@
+import math
 class Shape:
     def area(self):
         raise ' NotImplementedError'
@@ -13,4 +14,5 @@ class Circle(Shape):
         super().__init__()
         self.radius = radius
     def area(self):
+
         return (22/7)*(self.radius*self.radius)
