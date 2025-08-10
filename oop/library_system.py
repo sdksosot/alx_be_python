@@ -33,3 +33,4 @@ class Library:
                 print(f"{book.b}: {book.title} by {book.author}")
 
 
+# مثال للتجربة
