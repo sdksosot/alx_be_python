@@ -14,4 +14,4 @@ class Circle(Shape):
         super().__init__()
         self.radius = radius
     def area(self):
-        return (22/7)*(self.radius**2)
+        return (22/7)*self.radius**2
