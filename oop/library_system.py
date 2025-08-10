@@ -1,36 +1,49 @@
 class Book:
-    def __init__(self, title: str, author: str):
+    """Base class representing a generic book."""
+
+    def __init__(self, title: str, author: str) -> None:
         self.title = title
         self.author = author
-        self.b = "Book"
+
+    def __str__(self) -> str:
+        return f"Book: {self.title} by {self.author}"
+
 
 class EBook(Book):
-    def __init__(self, title: str, author: str, file_size: int):
+    """Derived class representing an electronic book."""
+
+    def __init__(self, title: str, author: str, file_size: int) -> None:
         super().__init__(title, author)
-        self.file_size = file_size
-        self.b = "EBook"
+        self.file_size = int(file_size)
+
+    def __str__(self) -> str:
+        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
+
 
 class PrintBook(Book):
-    def __init__(self, title: str, author: str, page_count: int):
+    """Derived class representing a printed book."""
+
+    def __init__(self, title: str, author: str, page_count: int) -> None:
         super().__init__(title, author)
-        self.page_count = page_count
-        self.b = "PrintBook"
+        self.page_count = int(page_count)
+
+    def __str__(self) -> str:
+        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
+
 
 class Library:
-    def __init__(self):
-        self.books = []
+    """Composition class that manages a collection of books."""
 
-    def add_book(self, book):
+    def __init__(self) -> None:
+        self.books = []  # list[Book]
+
+    def add_book(self, book) -> None:
+        """Add a Book (or subclass) instance to the library."""
+        if not isinstance(book, Book):
+            raise TypeError("add_book expects an instance of Book or one of its subclasses")
         self.books.append(book)
 
-    def list_books(self):
+    def list_books(self) -> None:
+        """Print details for every book in the library."""
         for book in self.books:
-            if isinstance(book, EBook):
-                print(f"{book.b}: {book.title} by {book.author}, File Size: {book.file_size}KB")
-            elif isinstance(book, PrintBook):
-                print(f"{book.b}: {book.title} by {book.author}, Page Count: {book.page_count}")
-            else:
-                print(f"{book.b}: {book.title} by {book.author}")
-
-
-# مثال للتجربة
+            print(str(book))
